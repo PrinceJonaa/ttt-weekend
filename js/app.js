@@ -87,10 +87,64 @@ let displayEnemyPick = (enemyPick.style.display = "none");
 let displayGameBoard = (gameBoard.style.display = "none");
 let displayWin = (winScreen.style.display = "none");
 
-let CheckWin = function() {
-  if (win === true) {
+function CheckWin() {
+  if (win === 1) {
+    displayWin = (winScreen.style.display = "block");
+    displayGameBoard = (gameBoard.style.display = "none");
+  } else if (win === 2) {
     displayWin = (winScreen.style.display = "block");
     displayGameBoard = (gameBoard.style.display = "none");
   }
 }
 
+function horizontalWin() {
+    if (
+    cell1.innerHTML === player && cell4.innerHTML === player && cell7.innerHTML === player) {
+    win = 1;
+  } else if (
+    cell2.innerHTML === player && cell4.innerHTML === player && cell7.innerHTML === player) {
+    win = 1;
+  } else if (
+    cell3.innerHTML === player && cell6.innerHTML === player && cell9.innerHTML === player) {
+    win = 1;
+  }
+}
+
+function verticalWin() {
+  if (
+    cell1.innerHTML === player && cell4.innerHTML === player && cell7.innerHTML === player) {
+    win = 1;
+  } else if (
+    cell2.innerHTML === player && cell4.innerHTML === player && cell7.innerHTML === player) {
+    win = 1;
+  } else if (
+    cell3.innerHTML === player && cell6.innerHTML === player && cell9.innerHTML === player) {
+    win = 1;
+  }
+}
+
+function horizontalLost() {
+  if (
+    cell1.innerHTML === player2 || enemy && cell2.innerHTML === player2 || enemy && cell3.innerHTML === player2) {
+    win = 2;
+  } else if (
+    cell4.innerHTML === player2 || enemy && cell5.innerHTML === player2 || enemy && cell6.innerHTML === player2) {
+    win = 2;
+  } else if (
+    cell7.innerHTML === player2 || enemy && cell8.innerHTML === player2 || enemy && cell9.innerHTML === player2) {
+    win = 2;
+  }
+}
+
+function verticalLost() {
+    if (
+    cell1.innerHTML === player2 || enemy && cell4.innerHTML === player2 || enemy && cell7.innerHTML === player2 || enemy) {
+    win = 2;
+  } else if (
+    cell2.innerHTML === player2 || enemy && cell4.innerHTML === player2 || enemy && cell7.innerHTML === player2 || enemy) {
+    win = 2;
+  } else if (
+    cell3.innerHTML === player2 || enemy && cell6.innerHTML === player2 || enemy && cell9.innerHTML === player2 || enemy) {
+    win = 2;
+  }
+}
